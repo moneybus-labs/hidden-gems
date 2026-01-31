@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>채상욱의 머니버스 | 멀티링크</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #8B7355; /* 이미지의 골드/브라운 톤 */
+            --bg-color: #f4f4f4;
+            --text-color: #333;
+        }
+
+        body {
+            margin: 0;
+            padding: 40px 20px;
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: var(--bg-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: var(--text-color);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 480px;
+            text-align: center;
+        }
+
+        .profile-container {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid white;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .header {
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 1.5rem;
+            margin: 10px 0;
+            color: #222;
+        }
+
+        .header p {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .link-item {
+            display: block;
+            background-color: white;
+            padding: 18px;
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border: 1px solid transparent;
+        }
+
+        .link-item:hover {
+            transform: translateY(-3px);
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .footer {
+            margin-top: 50px;
+            font-size: 0.8rem;
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="profile-container">
+            <img src="profile.png" alt="채상욱의 머니버스" class="profile-img">
+        </div>
+
+        <div class="header">
+            <div class="header">
+            <h1>채상욱의 머니버스</h1>
+            <p>반갑습니다! <strong>머니버스</strong> 승객 여러분.
+                <br>흔들리지 않는 편안함, <strong>머니버스</strong> 탑승을 환영합니다.
+                <br>안전한 여행되십시오. 고맙습니다!
+            </p>
+        </div>
+
+        </div>
+
+        <div class="links">
+            <a href="https://github.com/moneybus-labs/books" class="link-item" target="_blank">
+                📚 채상욱의 머니버스 구독자를 위한 추천 도서 안내
+            </a>
+            
+            <a href="https://drive.google.com/file/d/1NIq8BKHki7ccSFCqTDEGDAxgL2iYOXDX/view" class="link-item" target="_blank">
+                📈 액티브 ETF 구성 변화 시각화 앱
+            </a>
+        </div>
+
+        <div class="footer">
+            &copy; 2026 채상욱의 머니버스. All Rights Reserved.
+        </div>
+    </div>
+
+</body>
+</html>
