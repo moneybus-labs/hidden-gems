@@ -4,93 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>채상욱의 머니버스 | 멀티링크</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #8B7355; /* 이미지의 골드/브라운 톤 */
-            --bg-color: #f4f4f4;
-            --text-color: #333;
-        }
-
-        body {
-            margin: 0;
-            padding: 40px 20px;
-            font-family: 'Noto Sans KR', sans-serif;
-            background-color: var(--bg-color);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            color: var(--text-color);
-        }
-
-        .container {
-            width: 100%;
-            max-width: 480px;
-            text-align: center;
-        }
-
-        .profile-container {
-            position: relative;
-            margin-bottom: 20px;
-        }
-
-        .profile-img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid white;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-
-        .header {
-            margin-bottom: 40px;
-        }
-
-        .header h1 {
-            font-size: 1.5rem;
-            margin: 10px 0;
-            color: #222;
-        }
-
-        .header p {
-            font-size: 0.95rem;
-            color: #666;
-            line-height: 1.5;
-        }
-
-        .links {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .link-item {
-            display: block;
-            background-color: white;
-            padding: 18px;
-            border-radius: 12px;
-            text-decoration: none;
-            color: var(--text-color);
-            font-weight: 700;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-            border: 1px solid transparent;
-        }
-
-        .link-item:hover {
-            transform: translateY(-3px);
-            border-color: var(--primary-color);
-            color: var(--primary-color);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .footer {
-            margin-top: 50px;
-            font-size: 0.8rem;
-            color: #aaa;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -100,7 +14,6 @@
         </div>
 
         <div class="header">
-            <div class="header">
             <h1>채상욱의 머니버스</h1>
             <p>반갑습니다! <strong>머니버스</strong> 승객 여러분.
                 <br>흔들리지 않는 편안함, <strong>머니버스</strong> 탑승을 환영합니다.
@@ -108,7 +21,100 @@
             </p>
         </div>
 
-        </div>
+        <section class="commandments-section" id="capture-target">
+            <h2 class="commandments-title">하지마라 15계명</h2>
+            
+            <div class="bento-grid">
+                <div class="bento-card col-2 row-2 bg-purple">
+                    <div class="badge badge-warn">유의</div>
+                    <div class="card-header"><span class="section-num">§ 04</span><span class="card-icon">🎭</span></div>
+                    <div class="card-text" style="font-size: 1.2rem;">일희일비 하지마라</div>
+                </div>
+
+                <div class="bento-card">
+                    <div class="card-header"><span class="section-num">§ 01</span><span class="card-icon">🪙</span></div>
+                    <div class="card-text">코인 하지마라</div>
+                </div>
+
+                <div class="bento-card bg-yellow">
+                    <div class="card-header"><span class="section-num">§ 02</span><span class="card-icon">📉</span></div>
+                    <div class="card-text">커버드콜 하지마라</div>
+                </div>
+
+                <div class="bento-card col-2 bg-red-strong">
+                    <div class="badge badge-warn">유의</div>
+                    <div class="card-header"><span class="section-num">§ 06</span><span class="card-icon">😈</span></div>
+                    <div class="card-text">TQQQ 하지마라<br><span style="font-size: 0.9em; opacity: 0.8;">(사탄이다)</span></div>
+                </div>
+
+                <div class="bento-card">
+                    <div class="card-header"><span class="section-num">§ 03</span><span class="card-icon">🏠</span></div>
+                    <div class="card-text">투자용 부동산<br>하지마라</div>
+                </div>
+
+                <div class="bento-card">
+                    <div class="card-header"><span class="section-num">§ 05</span><span class="card-icon">📜</span></div>
+                    <div class="card-text">채권 하지마라</div>
+                </div>
+
+                <div class="bento-card">
+                    <div class="card-header"><span class="section-num">§ 08</span><span class="card-icon">💰</span></div>
+                    <div class="card-text">빚투 하지마라</div>
+                </div>
+
+                <div class="bento-card">
+                    <div class="card-header"><span class="section-num">§ 09</span><span class="card-icon">🧾</span></div>
+                    <div class="card-text" style="font-size: 0.75rem;">돈통 키워야지<br>세금 걱정마라</div>
+                </div>
+
+                <div class="bento-card col-2 bg-blue">
+                    <div class="badge badge-warn">유의</div>
+                    <div class="card-header"><span class="section-num">§ 07</span><span class="card-icon">🤐</span></div>
+                    <div class="card-text">무지성 뭐사요? 지금사요?<br>묻지마라</div>
+                </div>
+
+                <div class="bento-card col-2 row-2 bg-orange">
+                    <div class="badge badge-warn">유의</div>
+                    <div class="card-header"><span class="section-num">§ 10</span><span class="card-icon">💭</span></div>
+                    <div class="card-text">망상하지마라<br><span style="font-size: 0.8em; font-weight: 500;">(성장 & 역성장의 숫자를 봐라)</span></div>
+                </div>
+
+                <div class="bento-card row-2 bg-green">
+                    <div class="card-header"><span class="section-num">§ 12</span><span class="card-icon">🤏</span></div>
+                    <div class="card-text" style="font-size: 0.8rem;">무지성으로<br>개별주 하지마라<br><span style="font-size: 0.9em; opacity: 0.8;">(박복하다)</span></div>
+                </div>
+
+                <div class="bento-card">
+                    <div class="card-header"><span class="section-num">§ 11</span><span class="card-icon">🕘</span></div>
+                    <div class="card-text" style="font-size: 0.7rem;">9시30분이전<br>촉수금지<span style="font-weight: 500; opacity: 0.8;">(변동성높음)</span></div>
+                </div>
+
+                <div class="bento-card">
+                    <div class="card-header"><span class="section-num">§ 13</span><span class="card-icon">🎫</span></div>
+                    <div class="card-text">우선주 사지마라</div>
+                </div>
+
+                <div class="bento-card col-2">
+                    <div class="card-header"><span class="section-num">§ 14</span><span class="card-icon">🚫</span></div>
+                    <div class="card-text">랩(Wrap) 하지마라.</div>
+                </div>
+
+                <div class="bento-card col-4 card-joker">
+                    <div class="badge badge-joker">JOKER</div>
+                    <div class="card-icon">🛡️</div>
+                    <div>
+                        <div class="section-num">§ 15</div>
+                        <div class="card-text">평생 한번 승부처가 아니면 계명을 어기지마라<br><span style="font-size: 0.8em; opacity: 0.9;">(즉, 승부를 걸때는 계명을 어겨라)</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="download-container">
+                <a href="#" onclick="downloadImage(); return false;" class="download-btn">
+                    📥 15계명 이미지로 저장
+                </a>
+            </div>
+        </section>
 
         <div class="links">
             <a href="https://github.com/moneybus-labs/books" class="link-item" target="_blank">
@@ -125,5 +131,45 @@
         </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js" 
+            onerror="alert('스크립트 로드 실패! 인터넷 연결을 확인하거나 광고 차단 기능을 끄고 새로고침 해주세요.');"></script>
+
+    <script>
+        function downloadImage() {
+            // 라이브러리 로드 재확인
+            if (typeof html2canvas === 'undefined') {
+                alert("기능이 아직 로드되지 않았습니다. 잠시 후 다시 시도해주세요.");
+                return;
+            }
+
+            const target = document.getElementById('capture-target');
+
+            // 커서 대기 상태
+            document.body.style.cursor = 'wait';
+
+            html2canvas(target, {
+                scale: 3, // 고화질
+                backgroundColor: "#ffffff",
+                useCORS: true,
+                // 캡처용 복제본에서 버튼만 숨기기 (화면 깜빡임 방지)
+                onclone: function(clonedDoc) {
+                    const btn = clonedDoc.querySelector('.download-container');
+                    if (btn) btn.style.display = 'none';
+                }
+            }).then(canvas => {
+                const image = canvas.toDataURL("image/png");
+                const link = document.createElement('a');
+                link.download = '채상욱의_머니버스_15계명.png';
+                link.href = image;
+                link.click();
+                
+                document.body.style.cursor = 'default';
+            }).catch(err => {
+                console.error('캡처 실패:', err);
+                alert('이미지 저장 중 오류가 발생했습니다.\n(F12 개발자 도구의 콘솔을 확인해주세요)');
+                document.body.style.cursor = 'default';
+            });
+        }
+    </script>
 </body>
 </html>

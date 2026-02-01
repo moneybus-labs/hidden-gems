@@ -1,0 +1,192 @@
+@charset "UTF-8";
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap');
+
+:root {
+    --bg-color: #f4f5f7;
+    --text-color: #333;
+    /* 파스텔톤 컬러 팔레트 */
+    --c-white: #ffffff;
+    --c-red-light: #fff0f0;
+    --c-red-strong: #ffecec;
+    --c-purple: #f3e5f5;
+    --c-blue: #e3f2fd;
+    --c-green: #e8f5e9;
+    --c-yellow: #fffde7;
+    --c-orange: #fff3e0;
+}
+
+body {
+    margin: 0;
+    padding: 20px 10px;
+    font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+    background-color: var(--bg-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--text-color);
+}
+
+.container {
+    width: 100%;
+    max-width: 480px;
+    text-align: center;
+}
+
+/* --- 프로필 & 링크 --- */
+.profile-container { margin-bottom: 20px; }
+.profile-img {
+    width: 140px; height: 140px;
+    border-radius: 50%; object-fit: cover;
+    border: 3px solid white;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.header { margin-bottom: 25px; }
+.header h1 { font-size: 1.4rem; margin: 8px 0; color: #222; }
+.header p { font-size: 0.9rem; color: #666; line-height: 1.4; word-break: keep-all; }
+
+.links { display: flex; flex-direction: column; gap: 10px; margin-bottom: 40px; }
+.link-item {
+    display: block; background-color: white; padding: 15px;
+    border-radius: 12px; text-decoration: none; color: var(--text-color);
+    font-weight: 700; font-size: 0.95rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); border: 1px solid rgba(0,0,0,0.05);
+    transition: transform 0.2s;
+}
+.link-item:hover { transform: translateY(-2px); border-color: #8B7355; color: #8B7355; }
+
+/* --- 15계명 섹션 --- */
+.commandments-section {
+    width: 100%; 
+    box-sizing: border-box; 
+    text-align: left;
+    background-color: white;
+    padding: 25px 20px;
+    border-radius: 16px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    border: 1px solid rgba(0,0,0,0.05);
+    margin-bottom: 20px; /* 아래 링크들과 간격 */
+}
+
+.commandments-title {
+    text-align: center; 
+    font-size: 1.2rem; 
+    font-weight: 800;
+    margin-bottom: 20px; 
+    color: #1a1a1a; 
+    letter-spacing: -0.5px;
+}
+
+/* 4열 그리드 + Dense */
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 90px;
+    gap: 8px;
+    width: 100%;
+    grid-auto-flow: dense;
+}
+
+/* 카드 공통 */
+.bento-card {
+    background: var(--c-white);
+    border-radius: 14px;
+    padding: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.06); 
+    border: 1px solid rgba(0,0,0,0.08); 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+}
+
+.card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 4px; }
+.section-num { font-size: 0.65rem; opacity: 0.6; font-weight: 700; }
+.card-icon { font-size: 2rem; }
+
+/* 뱃지 스타일 */
+.badge {
+    position: absolute; top: 0; right: 0;
+    padding: 5px 10px;
+    border-bottom-left-radius: 10px;
+    font-size: 0.75rem;
+    font-weight: 800; 
+    color: white;
+    z-index: 10;
+    letter-spacing: -0.5px;
+}
+
+.card-text {
+    font-size: 0.8rem; font-weight: 700; color: #333;
+    line-height: 1.25; word-break: keep-all; letter-spacing: -0.5px;
+}
+
+/* --- 크기/색상 클래스 --- */
+.col-2 { grid-column: span 2; }
+.row-2 { grid-row: span 2; }
+.col-4 { grid-column: span 4; }
+
+.bg-purple { background-color: var(--c-purple); color: #4a148c; }
+.bg-red { background-color: var(--c-red-light); border: 1px solid #ffcdd2; }
+.bg-red-strong { background-color: var(--c-red-strong); border: 1px solid #ffcdd2; }
+.bg-blue { background-color: var(--c-blue); color: #0d47a1; }
+.bg-orange { background-color: var(--c-orange); color: #e65100; }
+.bg-green { background-color: var(--c-green); color: #1b5e20; }
+.bg-yellow { background-color: var(--c-yellow); color: #f57f17; }
+
+.col-2.row-2 .card-text, 
+.col-4 .card-text { font-size: 1rem; }
+.col-2.row-2 .card-icon { font-size: 2.5rem; margin-bottom: 5px; }
+
+.badge-warn { background-color: #ff5252; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+.badge-joker { 
+    background-color: #222222; 
+    color: #ffd700; 
+    border: 1px solid rgba(255,255,255,0.2); 
+}
+
+/* 조커 카드 */
+.card-joker {
+    background: linear-gradient(135deg, #FFD700 0%, #FFA000 100%);
+    color: white; border: none;
+    flex-direction: row; align-items: center; justify-content: center;
+    gap: 15px;
+}
+.card-joker .card-text { color: white; text-shadow: 0 1px 2px rgba(0,0,0,0.1); }
+.card-joker .section-num { color: rgba(255,255,255,0.8); }
+
+.footer { margin-top: 40px; font-size: 0.75rem; color: #bbb; text-align: center; }
+
+/* [추가] 다운로드 버튼 컨테이너 (우측 정렬) */
+.download-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 15px; /* 그리드와의 간격 */
+}
+
+/* [수정] 이미지 저장 버튼 스타일 (박스 밖으로 이동) */
+.download-btn {
+    /* 기존 absolute positioning 제거 */
+    font-size: 0.8rem;
+    color: #555; /* 글자색 변경 (흰 배경용) */
+    text-decoration: none;
+    background: #f0f0f0; /* 밝은 회색 배경 */
+    padding: 8px 16px;
+    border-radius: 20px;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 600;
+    border: 1px solid #ddd; /* 테두리 추가 */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.download-btn:hover {
+    background: #e8e8e8;
+    color: #333;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
