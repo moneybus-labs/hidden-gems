@@ -1,4 +1,41 @@
 // data.js
+
+const linksData = [
+    {
+        url: 'https://activetfs.github.io/reports',
+        title: '📊 액티브 ETF 리포트',
+        isNew: true,
+        contributor: {
+            githubId: 'activetfs',
+            name: '게임하는 판다 192331'
+        }
+    },
+    {
+        url: 'https://meringue5.github.io/chaextractor',
+        title: '💬 카톡방 대화 정리 뷰어 (벽타기용)',
+        isNew: false,
+        contributor: {
+            githubId: 'meringue5',
+            name: '무스타파'
+        }
+    },
+    {
+        url: 'https://drive.google.com/file/d/1NIq8BKHki7ccSFCqTDEGDAxgL2iYOXDX/view',
+        title: '📈 액티브 ETF 구성 변화 시각화 앱',
+        isNew: false,
+        contributor: {
+            githubId: null,
+            name: '🪵 우드워커'
+        }
+    },
+    {
+        url: 'https://github.com/moneybus-labs/books',
+        title: '📚 채상욱의 머니버스 구독자를 위한 추천 도서 안내',
+        isNew: false,
+        contributor: null
+    }        
+];
+
 const bentoData = [
     { 
         id: 1, 
