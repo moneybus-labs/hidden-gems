@@ -87,36 +87,7 @@
             </div>
         </section>
 
-        <div class="links">
-            <a href="https://meringue5.github.io/chaextractor" class="link-item" target="_blank">
-                <div class="link-content">
-                    <span class="link-title">💬 카톡방 대화 정리 뷰어 (벽타기용) <span class="badge-new">NEW</span></span>
-                    <div class="contributor-wrapper">
-                        <span class="by-text">by</span>
-                        <div class="contributor-chip">
-                            <img src="https://github.com/meringue5.png" alt="무스타파" class="avatar-vxs">
-                            <span class="author-name">무스타파</span>
-                        </div>
-                    </div>
-                </div>
-            </a>
-            <a href="https://drive.google.com/file/d/1NIq8BKHki7ccSFCqTDEGDAxgL2iYOXDX/view" class="link-item" target="_blank">
-                <div class="link-content">
-                    <span class="link-title">📈 액티브 ETF 구성 변화 시각화 앱</span>
-                    <div class="contributor-wrapper">
-                        <span class="by-text">by</span>
-                        <div class="contributor-chip">
-                            <span class="author-name">🪵 우드워커</span>
-                        </div>
-                    </div>
-                </div>
-            </a>
-            <a href="https://github.com/moneybus-labs/books" class="link-item" target="_blank">
-                <div class="link-content">
-                    <span class="link-title">📚 채상욱의 머니버스 구독자를 위한 추천 도서 안내</span>
-                </div>
-            </a>
-        </div>
+        <div id="links-container" class="links"></div>
 
         <div class="footer">
             &copy; 2026 채상욱의 머니버스. All Rights Reserved.
@@ -153,8 +124,46 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             renderBentoGrid();
+            renderLinks();
             setupModalEvents();
         });
+
+        function renderLinks() {
+            const container = document.getElementById('links-container');
+            if (!container) return;
+
+            linksData.forEach(item => {
+                const a = document.createElement('a');
+                a.href = item.url;
+                a.className = 'link-item';
+                a.target = '_blank';
+
+                const newBadge = item.isNew ? `<span class="badge-new">NEW</span>` : '';
+
+                let contributorHTML = '';
+                if (item.contributor) {
+                    const avatar = item.contributor.githubId
+                        ? `<img src="https://github.com/${item.contributor.githubId}.png" alt="${item.contributor.name}" class="avatar-vxs">`
+                        : '';
+                    contributorHTML = `
+                        <div class="contributor-wrapper">
+                            <span class="by-text">by</span>
+                            <div class="contributor-chip">
+                                ${avatar}
+                                <span class="author-name">${item.contributor.name}</span>
+                            </div>
+                        </div>`;
+                }
+
+                a.innerHTML = `
+                    <div class="link-content">
+                        <span class="link-title">${item.title} ${newBadge}</span>
+                        ${contributorHTML}
+                    </div>`;
+
+                container.appendChild(a);
+            });
+        }
 
         function renderBentoGrid() {
             const container = document.getElementById('bento-grid-container');
