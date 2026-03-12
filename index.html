@@ -87,6 +87,11 @@
             </div>
         </section>
 
+        <section class="etf-section">
+            <h2 class="etf-section-title">관심 ETF 목록</h2>
+            <div id="etf-container"></div>
+        </section>
+
         <div id="links-container" class="links"></div>
 
         <div class="footer">
@@ -124,9 +129,46 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             renderBentoGrid();
+            renderEtfSection();
             renderLinks();
             setupModalEvents();
         });
+
+        function renderEtfSection() {
+            const container = document.getElementById('etf-container');
+            if (!container) return;
+
+            etfData.forEach(group => {
+                const categoryEl = document.createElement('div');
+                categoryEl.className = 'etf-category';
+
+                const label = document.createElement('div');
+                label.className = 'etf-category-label';
+                label.textContent = group.category;
+                categoryEl.appendChild(label);
+
+                const list = document.createElement('div');
+                list.className = 'etf-list';
+
+                group.items.forEach(etf => {
+                    const chip = document.createElement('div');
+                    const brandClass = etf.brand ? `etf-brand-${etf.brand}` : 'etf-brand-none';
+                    chip.className = `etf-chip ${brandClass}`;
+
+                    const displayName = etf.nickname || etf.fullName;
+                    const pendingBadge = etf.isPending ? `<span class="etf-pending-badge">미정</span>` : '';
+
+                    chip.innerHTML = `
+                        <div class="etf-nickname">${displayName}${pendingBadge}</div>
+                        ${etf.nickname ? `<div class="etf-fullname">${etf.fullName}</div>` : ''}
+                    `;
+                    list.appendChild(chip);
+                });
+
+                categoryEl.appendChild(list);
+                container.appendChild(categoryEl);
+            });
+        }
 
         function renderLinks() {
             const container = document.getElementById('links-container');
