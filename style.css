@@ -339,7 +339,122 @@ body {
     box-shadow: 0 2px 4px rgba(255, 71, 87, 0.2);
 }
 
-/* --- 7. Footer --- */
+/* --- 7. ETF Section --- */
+.etf-section {
+    box-sizing: border-box;
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 25px 20px;
+    background-color: var(--c-white);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 16px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    text-align: left;
+}
+
+.etf-section-title {
+    margin: 0 0 20px 0;
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: #1a1a1a;
+    text-align: center;
+    letter-spacing: -0.5px;
+}
+
+.etf-category {
+    margin-bottom: 18px;
+}
+
+.etf-category:last-child {
+    margin-bottom: 0;
+}
+
+.etf-category-label {
+    display: inline-block;
+    margin-bottom: 10px;
+    padding: 3px 10px;
+    background-color: #1a1a1a;
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 800;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+}
+
+.etf-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.etf-chip {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 8px 12px;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.07);
+    min-width: 0;
+    cursor: default;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.etf-chip:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 브랜드별 색상 */
+.etf-brand-TIME  { background-color: var(--c-blue);   color: #0d47a1; }
+.etf-brand-KoAct { background-color: var(--c-green);  color: #1b5e20; }
+.etf-brand-KODEX { background-color: var(--c-orange); color: #e65100; }
+.etf-brand-RISE  { background-color: var(--c-purple); color: #4a148c; }
+.etf-brand-TIGER { background-color: var(--c-yellow); color: #f57f17; }
+.etf-brand-none  { background-color: var(--c-gray-100); color: #333; }
+
+.etf-nickname {
+    font-size: 0.9rem;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+}
+
+.etf-fullname {
+    font-size: 0.65rem;
+    font-weight: 500;
+    opacity: 0.7;
+    line-height: 1.2;
+    word-break: keep-all;
+}
+
+.etf-pending-badge {
+    display: inline-block;
+    margin-left: 3px;
+    padding: 1px 4px;
+    background-color: rgba(0, 0, 0, 0.12);
+    font-size: 0.6rem;
+    font-weight: 800;
+    border-radius: 4px;
+    vertical-align: middle;
+}
+
+/* 링크 칩 (a 태그로 렌더링될 때) */
+a.etf-chip {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* 섹션 안내 문구 */
+.section-hint {
+    margin: 12px 0 0 0;
+    font-size: 0.72rem;
+    color: var(--text-light);
+    text-align: center;
+    letter-spacing: -0.2px;
+}
+
+/* --- 8. Footer --- */
 .footer {
     margin-top: 40px;
     font-size: 0.75rem;

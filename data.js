@@ -36,6 +36,47 @@ const linksData = [
     }        
 ];
 
+const etfData = [
+    {
+        category: '미국',
+        items: [
+            { nickname: '타슨피', brand: 'TIME',   fullName: 'TIME S&P 500 액티브',               url: 'https://timeetf.co.kr/m11_view.php?idx=5' },
+            { nickname: '타나백', brand: 'TIME',   fullName: 'TIME 미국 나스닥 100 액티브',        url: 'https://timeetf.co.kr/m11_view.php?idx=2' },
+            { nickname: '코나성', brand: 'KoAct',  fullName: 'KoAct 미국 나스닥 성장기업 액티브',  url: 'https://www.samsungactive.co.kr/etf/view.do?id=2ETFQ1' },
+        ]
+    },
+    {
+        category: '국내',
+        items: [
+            { nickname: '라코전', brand: 'RISE',   fullName: 'RISE 코리아 전략산업 액티브',          url: 'https://www.riseetf.co.kr/prod/finderDetail/44K0' },
+            { nickname: '타코밸', brand: 'TIME',   fullName: 'TIME 코리아 밸류업 액티브',            url: 'https://timeetf.co.kr/m11_view.php?idx=15' },
+            { nickname: '코코밸', brand: 'KoAct',  fullName: 'KoAct 코리아 밸류업 액티브',          url: 'https://www.samsungactive.co.kr/etf/view.do?id=2ETFP3' },
+            { nickname: '타스피', brand: 'TIME',   fullName: 'TIME 코스피 액티브', isPending: true,  url: 'https://timeetf.co.kr/m11_view.php?idx=11' },
+            { nickname: '타플배', brand: 'TIME',   fullName: 'TIME 코리아 플러스 배당 액티브',       url: 'https://timeetf.co.kr/m11_view.php?idx=12' },
+            { nickname: '코배성', brand: 'KoAct',  fullName: 'KoAct 배당 성장 액티브',              url: 'https://www.samsungactive.co.kr/etf/view.do?id=2ETFM2' },
+            { nickname: '코수출', brand: 'KoAct',  fullName: 'KoAct K수출 핵심기업 Top30 액티브',   url: 'https://www.samsungactive.co.kr/etf/view.do?id=2ETFR6' },
+            { nickname: '타코닥', brand: 'TIME',   fullName: 'TIME 코스닥 액티브',                  url: 'https://timeetf.co.kr/m11_view.php?idx=24' },
+            { nickname: '코코닥', brand: 'KoAct',  fullName: 'KoAct 코스닥 액티브',                url: 'https://www.samsungactive.co.kr/etf/view.do?id=2ETFU6' },
+        ]
+    },
+    {
+        category: '고배당',
+        items: [
+            { nickname: 'AGNC',  brand: null,     fullName: 'AGNC 인베스트먼트',       url: 'https://investors.agnc.com/' },
+            { nickname: '일부리', brand: 'KODEX',  fullName: 'KODEX 일본부동산 리츠(H)', url: 'https://www.samsungfund.com/etf/product/view.do?id=2ETFD1' },
+        ]
+    },
+    {
+        category: '중국',
+        items: [
+            { nickname: null, brand: 'KODEX', fullName: 'KODEX 차이나 AI 테크 액티브', url: 'https://www.samsungfund.com/etf/product/view.do?id=2ETFG7' },
+            { nickname: null, brand: 'TIME',  fullName: 'TIME 차이나 AI 테크 액티브',  url: 'https://timeetf.co.kr/m11_view.php?idx=19' },
+            { nickname: null, brand: 'TIGER', fullName: 'TIGER 차이나 항셍테크',       url: 'https://investments.miraeasset.com/tigeretf/ko/product/search/detail/index.do?ksdFund=KR7371160003' },
+            { nickname: null, brand: 'TIGER', fullName: 'TIGER 차이나 항셍30',         url: 'https://investments.miraeasset.com/tigeretf/ko/product/search/detail/index.do?ksdFund=KR7117690008' },
+        ]
+    },
+];
+
 const bentoData = [
     { 
         id: 1, 

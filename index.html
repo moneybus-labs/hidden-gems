@@ -77,14 +77,22 @@
 
         <section class="commandments-section" id="capture-target">
             <h2 class="commandments-title">하지마라 17계명</h2>
-            
+
             <div id="bento-grid-container" class="bento-grid"></div>
+
+            <p class="section-hint">각 계명 카드를 클릭하면 상세 설명을 볼 수 있습니다</p>
 
             <div class="download-container">
                 <a href="#" onclick="downloadImage(); return false;" class="download-btn">
                     📥 17계명 이미지로 저장
                 </a>
             </div>
+        </section>
+
+        <section class="etf-section">
+            <h2 class="etf-section-title">관심 ETF 목록</h2>
+            <div id="etf-container"></div>
+            <p class="section-hint">각 ETF 카드를 클릭하면 해당 상품 페이지로 이동합니다</p>
         </section>
 
         <div id="links-container" class="links"></div>
@@ -124,9 +132,54 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             renderBentoGrid();
+            renderEtfSection();
             renderLinks();
             setupModalEvents();
         });
+
+        function renderEtfSection() {
+            const container = document.getElementById('etf-container');
+            if (!container) return;
+
+            etfData.forEach(group => {
+                const categoryEl = document.createElement('div');
+                categoryEl.className = 'etf-category';
+
+                const label = document.createElement('div');
+                label.className = 'etf-category-label';
+                label.textContent = group.category;
+                categoryEl.appendChild(label);
+
+                const list = document.createElement('div');
+                list.className = 'etf-list';
+
+                group.items.forEach(etf => {
+                    const brandClass = etf.brand ? `etf-brand-${etf.brand}` : 'etf-brand-none';
+                    const displayName = etf.nickname || etf.brand;
+                    const pendingBadge = etf.isPending ? `<span class="etf-pending-badge">미정</span>` : '';
+                    const innerHTML = `
+                        <div class="etf-nickname">${displayName}${pendingBadge}</div>
+                        <div class="etf-fullname">${etf.fullName}</div>
+                    `;
+
+                    let chip;
+                    if (etf.url) {
+                        chip = document.createElement('a');
+                        chip.href = etf.url;
+                        chip.target = '_blank';
+                        chip.rel = 'noopener';
+                    } else {
+                        chip = document.createElement('div');
+                    }
+                    chip.className = `etf-chip ${brandClass}`;
+                    chip.innerHTML = innerHTML;
+                    list.appendChild(chip);
+                });
+
+                categoryEl.appendChild(list);
+                container.appendChild(categoryEl);
+            });
+        }
 
         function renderLinks() {
             const container = document.getElementById('links-container');
