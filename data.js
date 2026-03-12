@@ -2,6 +2,15 @@
 
 const linksData = [
     {
+        url: 'https://buly.kr/GvokGOa',
+        title: '📈 액티브 ETF 구성 변화 시각화 앱',
+        isNew: true,
+        contributor: {
+            githubId: 'joonhochoi',
+            name: '우드워커'
+        }
+    },
+    {
         url: 'https://activetfs.github.io/reports',
         title: '📊 액티브 ETF 리포트',
         isNew: true,
@@ -17,15 +26,6 @@ const linksData = [
         contributor: {
             githubId: 'meringue5',
             name: '무스타파'
-        }
-    },
-    {
-        url: 'https://drive.google.com/file/d/1NIq8BKHki7ccSFCqTDEGDAxgL2iYOXDX/view',
-        title: '📈 액티브 ETF 구성 변화 시각화 앱',
-        isNew: false,
-        contributor: {
-            githubId: null,
-            name: '🪵 우드워커'
         }
     },
     {
