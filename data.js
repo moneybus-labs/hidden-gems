@@ -2,6 +2,12 @@
 
 const linksData = [
     {
+        url: 'https://bird-heart.pages.dev',
+        title: '🚌 머니버스 포트폴리오 가이드',
+        isNew: true,
+        contributor: null
+    },
+    {
         url: 'https://buly.kr/GvokGOa',
         title: '📈 액티브 ETF 구성 변화 시각화 앱',
         isNew: true,
