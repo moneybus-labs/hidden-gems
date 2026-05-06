@@ -439,6 +439,20 @@ body {
     vertical-align: middle;
 }
 
+.etf-best-badge {
+    display: inline-block;
+    margin-left: 4px;
+    padding: 1px 5px;
+    background: linear-gradient(135deg, #FFD700 0%, #FFA000 100%);
+    color: #fff;
+    font-size: 0.6rem;
+    font-weight: 800;
+    border-radius: 4px;
+    vertical-align: middle;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 4px rgba(255, 160, 0, 0.3);
+}
+
 /* 링크 칩 (a 태그로 렌더링될 때) */
 a.etf-chip {
     text-decoration: none;

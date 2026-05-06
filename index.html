@@ -76,7 +76,7 @@
         </div>
 
         <section class="commandments-section" id="capture-target">
-            <h2 class="commandments-title">하지마라 17계명</h2>
+            <h2 class="commandments-title">하지마라 19계명</h2>
 
             <div id="bento-grid-container" class="bento-grid"></div>
 
@@ -84,7 +84,7 @@
 
             <div class="download-container">
                 <a href="#" onclick="downloadImage(); return false;" class="download-btn">
-                    📥 17계명 이미지로 저장
+                    📥 19계명 이미지로 저장
                 </a>
             </div>
         </section>
@@ -157,8 +157,9 @@
                     const brandClass = etf.brand ? `etf-brand-${etf.brand}` : 'etf-brand-none';
                     const displayName = etf.nickname || etf.brand;
                     const pendingBadge = etf.isPending ? `<span class="etf-pending-badge">미정</span>` : '';
+                    const bestBadge = etf.isBest ? `<span class="etf-best-badge">BEST</span>` : '';
                     const innerHTML = `
-                        <div class="etf-nickname">${displayName}${pendingBadge}</div>
+                        <div class="etf-nickname">${displayName}${pendingBadge}${bestBadge}</div>
                         <div class="etf-fullname">${etf.fullName}</div>
                     `;
 
@@ -326,7 +327,7 @@
                 }
             }).then(canvas => {
                 const link = document.createElement('a');
-                link.download = '채상욱의_머니버스_17계명.png';
+                link.download = '채상욱의_머니버스_19계명.png';
                 link.href = canvas.toDataURL("image/png");
                 link.click();
                 document.body.style.cursor = 'default';
