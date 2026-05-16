@@ -79,7 +79,6 @@ const etfData = [
         category: '고배당',
         items: [
             { nickname: 'AGNC', brand: null, fullName: 'AGNC 인베스트먼트', url: 'https://investors.agnc.com/' },
-            { nickname: '일부리', brand: 'KODEX', fullName: 'KODEX 일본부동산 리츠(H)', url: 'https://www.samsungfund.com/etf/product/view.do?id=2ETFD1' },
         ]
     },
     {
