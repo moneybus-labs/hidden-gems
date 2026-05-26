@@ -37,7 +37,7 @@
 
 * **`data.js`**: 페이지의 모든 콘텐츠 데이터 관리
   * `linksData` — 멀티링크 섹션의 링크 목록 (url, title, isNew, contributor)
-  * `bentoData` — '하지마라 17계명' 카드 데이터 (icon, title, logic, detail 등)
+  * `bentoData` — '하지마라 20계명' 카드 데이터 (icon, title, logic, detail 등)
 * **`index.html`**: 페이지 구성 및 디자인 (CSS 포함), `data.js`를 읽어 동적으로 렌더링
 * **`profile.png`**: 메인 프로필 이미지
 
