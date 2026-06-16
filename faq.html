@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Moneyverse를 여행하는 신규 탑승자를 위한 안내서</title>
+    <title>Moneyverse를 여행하는 탑승자를 위한 안내서</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -19,7 +19,7 @@
                 </svg>
                 돌아가기
             </a>
-            <h1>📢 Moneyverse를 여행하는 신규 탑승자를 위한 안내서</h1>
+            <h1>📢 Moneyverse를 여행하는 탑승자를 위한 안내서</h1>
             <p>환영합니다! 본 소통방은 채상욱 리더님과 승객(회원)들이 연금성 자산과 액티브 ETF 정보를 나누는 공부방입니다. 모두가 쾌적하게 소통할 수 있도록 필수 가이드라인을 확인해 주세요.</p>
         </header>
 
@@ -55,7 +55,7 @@
                     itemEl.className = 'faq-item';
 
                     const qMarkStyle = item.isImportant ? 'style="color: #ff5252;"' : '';
-                    
+
                     itemEl.innerHTML = `
                         <button class="faq-question">
                             <span class="q-mark" ${qMarkStyle}>${item.qNum}</span>
@@ -79,7 +79,7 @@
                 button.addEventListener('click', () => {
                     const item = button.parentElement;
                     const isActive = item.classList.contains('active');
-                    
+
                     // 닫혀있던 것을 열 때 다른 항목들은 닫기
                     document.querySelectorAll('.faq-item').forEach(i => {
                         i.classList.remove('active');
@@ -93,4 +93,5 @@
         }
     </script>
 </body>
+
 </html>
