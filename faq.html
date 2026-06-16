@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moneyverse를 여행하는 신규 탑승자를 위한 안내서</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container faq-container">
+        <header class="faq-header">
+            <a href="index.html" class="back-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+                돌아가기
+            </a>
+            <h1>📢 Moneyverse를 여행하는 신규 탑승자를 위한 안내서</h1>
+            <p>환영합니다! 본 소통방은 채상욱 리더님과 승객(회원)들이 연금성 자산과 액티브 ETF 정보를 나누는 공부방입니다. 모두가 쾌적하게 소통할 수 있도록 필수 가이드라인을 확인해 주세요.</p>
+        </header>
+
+        <div id="faq-content-container"></div>
+
+        <div class="footer">
+            &copy; 2026 채상욱의 머니버스. All Rights Reserved.
+        </div>
+    </div>
+
+    <script src="data.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            renderFaq();
+            setupAccordionEvents();
+        });
+
+        function renderFaq() {
+            const container = document.getElementById('faq-content-container');
+            if (!container) return;
+
+            faqData.forEach(section => {
+                const sectionEl = document.createElement('section');
+                sectionEl.className = 'faq-section';
+
+                const titleEl = document.createElement('h2');
+                titleEl.className = 'faq-category-title';
+                titleEl.textContent = section.category;
+                sectionEl.appendChild(titleEl);
+
+                section.items.forEach(item => {
+                    const itemEl = document.createElement('div');
+                    itemEl.className = 'faq-item';
+
+                    const qMarkStyle = item.isImportant ? 'style="color: #ff5252;"' : '';
+                    
+                    itemEl.innerHTML = `
+                        <button class="faq-question">
+                            <span class="q-mark" ${qMarkStyle}>${item.qNum}</span>
+                            <span>${item.question}</span>
+                            <span class="faq-icon"></span>
+                        </button>
+                        <div class="faq-answer">
+                            ${item.answer}
+                        </div>
+                    `;
+
+                    sectionEl.appendChild(itemEl);
+                });
+
+                container.appendChild(sectionEl);
+            });
+        }
+
+        function setupAccordionEvents() {
+            document.querySelectorAll('.faq-question').forEach(button => {
+                button.addEventListener('click', () => {
+                    const item = button.parentElement;
+                    const isActive = item.classList.contains('active');
+                    
+                    // 닫혀있던 것을 열 때 다른 항목들은 닫기
+                    document.querySelectorAll('.faq-item').forEach(i => {
+                        i.classList.remove('active');
+                    });
+
+                    if (!isActive) {
+                        item.classList.add('active');
+                    }
+                });
+            });
+        }
+    </script>
+</body>
+</html>

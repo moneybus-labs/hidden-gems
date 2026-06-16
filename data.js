@@ -304,3 +304,78 @@ const bentoData = [
         badge: { class: 'badge-joker', text: 'JOKER' }
     }
 ];
+
+const faqData = [
+    {
+        category: "🚀 Part 1. 신규 가입자 온보딩 & 필수 가이드",
+        items: [
+            {
+                qNum: "Q1.",
+                question: "방금 가입한 주린이/초보입니다. 뭐부터 시작해야 할지 벅찹니다.",
+                answer: `<p><strong>A.</strong> 머니버스에 처음 탑승하신 분들 환영합니다! 당장 주식이나 ETF를 매수하려 하지 마시고, <strong>아래 순서대로 필수 콘텐츠를 먼저 확인</strong>하며 방의 프레임에 익숙해지는 것을 권장합니다. 특히 마지막 링크인 지난 톡방 아카이브 내용을 꼼꼼히 읽고 나면 대화의 흐름을 따라잡게 되실 겁니다.</p><ul><li><a href="https://fanding.kr/@chae_moneybus/post/142622/" target="_blank">0. 팬딩 머니버스 멤버십 접속 안내</a></li><li><a href="https://fanding.kr/@chae_moneybus/post/156215/" target="_blank">1. 콘텐츠 루틴안내 (일정안내)</a></li><li><a href="https://fanding.kr/@chae_moneybus/post/156820/" target="_blank">2. 신규회원 필독 가이드</a></li><li><a href="https://fanding.kr/@chae_moneybus/post/156669/" target="_blank">3. 질문하기 전 필수 체크 FAQ</a></li><li><a href="https://fanding.kr/@chae_moneybus/series" target="_blank">4. 모든 콘텐츠 모아보기 &lt;시리즈&gt;</a></li><li><a href="https://fanding.kr/@chae_moneybus/posts" target="_blank">5. 모든 포스트 모아보기 &lt;포스트&gt;</a></li><li><a href="https://fanding.kr/@chae_moneybus/series/2322/" target="_blank">👉 지난 톡방 아카이브 내용 확인하기</a></li></ul>`
+            },
+            {
+                qNum: "Q2.",
+                question: "단톡방 닉네임은 어떻게 설정해야 하는가요? (팬딩 닉네임 통일)",
+                answer: `<p><strong>A.</strong> 단톡방 무임승차를 방지하기 위해 <strong>본인의 '팬딩 닉네임'과 '단톡방 닉네임'을 정확하게 통일</strong>해 주셔야 합니다. 닉네임이 다를 경우 예외 없이 강제퇴장 처리됩니다.</p><ul><li><strong>팬딩 닉네임 확인:</strong> 앱 우하단 &lt;마이&gt; 클릭 후 상단 확인 (또는 <a href="https://fanding.kr/account-info" target="_blank">계정 정보 링크</a> 접속 후 우상단 '앱열기' 또는 '로그인' 시 확인)</li><li><strong>카톡방 닉네임 변경:</strong> 우상단 줄 3개 ➔ 본인 프로필 ➔ 프로필 바꾸기 ➔ <strong>'카카오 프렌즈' 선택 (오픈프로필 X)</strong> ➔ 닉네임 변경 (<a href="https://fanding.me/nickname" target="_blank">자세한 변경 가이드</a>)</li></ul>`
+            },
+            {
+                qNum: "Q3.",
+                question: "멤버십 가입, 결제 오류, 강의 관련 등 시스템 문의는 어디로 하나요?",
+                answer: `<p><strong>A.</strong> 본 채팅방은 공지 및 투자 관련 소통을 위한 공간입니다. 프로그램, 결제 등 시스템 관련 문의나 피드백을 톡방에 올리시면 <strong>답변 없이 삭제</strong>될 수 있습니다. 해당 문의는 단톡방이 아닌 <strong><a href="http://pf.kakao.com/_uLxjhG/chat" target="_blank">팬딩 고객센터</a></strong> 로 부탁드립니다.</p>`
+            },
+            {
+                qNum: "Q4.",
+                question: "'머니버스 소통방'과 '주식부자 아지트' 방은 어떤 차이가 있나요?",
+                answer: `<p><strong>A.</strong> 두 채널은 목적이 다릅니다.</p><ul><li><strong>머니버스 소통방:</strong> 시장 흐름, 거시 경제, 정량적 분석 프레임을 양방향으로 자유롭게 소통하는 공간입니다. 다양한 투자 아이디어와 전략을 나눕니다.</li><li><strong>주식부자 아지트 방:</strong> 밸류에이션 트레이딩과 구체적인 개별 종목(알주식) 분석을 깊게 다루는 단방향 심화 채널입니다.</li></ul>`
+            }
+        ]
+    },
+    {
+        category: "🚨 Part 2. 소통방 운영 규칙",
+        items: [
+            {
+                qNum: "Q5.",
+                isImportant: true,
+                question: "<strong>[매우 중요]</strong> 소통방 내에서 지켜야 할 기본 매너나 운영 시간이 있나요?",
+                answer: `<p><strong>A.</strong> 모두가 함께 공부하고 존중하는 커뮤니티를 위해 다음 방침이 엄격하게 적용됩니다. <strong>위반 시 사전 경고 없이 즉시 퇴장 및 재입장 불가 처리</strong>됩니다.</p><ul><li><strong>존댓말 사용 필수:</strong> 반말 시 즉시 퇴장</li><li><strong>금지 행위:</strong> 타인 비난, 분쟁 유발, 부정적 태도 절대 금지</li><li><strong>운영 시간:</strong> 오전 7시 ~ 오후 11시 (그 외 시간은 소등 유지)</li></ul>`
+            },
+            {
+                qNum: "Q6.",
+                isImportant: true,
+                question: "<strong>[매우 중요]</strong> 제 개별 종목(알주식)에 대해 질문하거나 매도/매수 타이밍을 물어봐도 되나요?",
+                answer: `<p><strong>A.</strong> <strong style="color: #ff5252;">절대 불가합니다.</strong> 머니버스 소통방은 유사투자자문법 등 법적인 가이드라인을 엄격히 준수합니다. 따라서 "이 종목 사도 되나요?", "언제 팔까요?"와 같은 <strong>개별 종목 투자 판단 문의나 리딩 요청에는 답변해 드릴 수 없습니다.</strong></p>`
+            }
+        ]
+    },
+    {
+        category: "📈 Part 3. 핵심 투자 전략 & 자산 배분",
+        items: [
+            {
+                qNum: "Q7.",
+                question: "AGNC 비중은 왜 가져가나요? 배당은 주지만 원금이 줄어드는 게 걱정됩니다.",
+                answer: `<p><strong>A.</strong> AGNC 투자의 목적은 주가 차익(성장)이 아닌, <strong>약 연 14% 수준의 확실한 현금흐름 확보</strong>에 있습니다. 금리가 올라가면 원금 손실이 있을 수 있으나 월 배당 형식의 지속적인 현금 흐름은 변동성이 높은 주식 시장에서 버틸 수 있는 든든한 방어막 역할을 해줍니다.</p>`
+            },
+            {
+                qNum: "Q8.",
+                question: "코인(가상자산) 투자는 변동성이 커서 안 좋나요? 왜 추천을 안 하시나요?",
+                answer: `<p><strong>A.</strong> 코인은 주식(기업)과 달리 <strong>'스스로 부가가치를 창출하는 실질 기반'이 없는 단순 매수매도 도박판</strong>에 가깝기 때문입니다. 투자는 부가가치를 창출하는 기업에 해야 하므로, 경제학적 투자 관점에서 코인은 권장하지 않습니다.</p>`
+            }
+        ]
+    },
+    {
+        category: "🏦 Part 4. 연금/절세 계좌 & 부동산",
+        items: [
+            {
+                qNum: "Q9.",
+                question: "IRP, 연금저축, 퇴직연금(DC형) 계좌를 세팅하려는데 어느 증권사가 좋나요?",
+                answer: `<p><strong>A. 은행 계좌라면 증권사로 옮기시기 바랍니다.</strong> 매매가능한 ETF 수가 월등히 많습니다. 본인이 직접 굴려야 하므로 <strong>우리가 원하는 '액티브 ETF'를 제한 없이 매매할 수 있는 증권사</strong>라면 주거래 증권사 등 어디든 편하게 이용하시면 됩니다. 일반 계좌는 성장성 위주로, 절세 계좌는 밸류업 지수나 배당 자산으로 이원화하는 방식을 많이 활용합니다.</p>`
+            },
+            {
+                qNum: "Q10.",
+                question: "주식 상승장이라 주변 집값이 오르는 걸 보면 부동산 실거주 한 채라도 갈아타야 할까 고민됩니다.",
+                answer: `<p><strong>A.</strong> 부동산 가격이 오르는 시기에는 내 집 마련이나 갈아타기를 하지 못한 분들에게 강한 포모(FOMO)가 올 수 있습니다. 물론 <strong>안정적인 주거 환경(실거주 한 채)은 심리적 안정감을 주어 장기적인 주식 투자에도 큰 도움</strong>이 됩니다. 따라서 실거주를 위한 매수는 본인의 선택이자 자연스러운 본성이지만, 자산의 대부분이 묶이는 부동산 '몰빵'보다는 <strong>유동성 있는 주식 자산 및 현금흐름과의 밸런스를 맞추는 것</strong>을 최우선으로 고려하시길 권장합니다.</p>`
+            }
+        ]
+    }
+];
