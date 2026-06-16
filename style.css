@@ -587,6 +587,38 @@ a.etf-chip {
     text-align: center;
 }
 
+/* Ko-fi floating widget position - bottom right */
+.floatingchat-container-wrap {
+  left: unset !important;
+  right: 16px !important;
+  bottom: 20px !important;
+  top: unset !important;
+}
+.floating-chat-kofi-popup-iframe {
+  left: unset !important;
+  right: 16px !important;
+}
+
+@media (max-width: 767px) {
+  .floatingchat-container-wrap,
+  .floatingchat-container-wrap-mobi,
+  .floating-chat-kofi-popup-iframe,
+  .floating-chat-kofi-popup-iframe-mobi,
+  [id^="kofi-widget-overlay"] {
+    display: none !important;
+  }
+}
+
+/* User Agent or initial JS detected mobile check */
+.is-mobile .floatingchat-container-wrap,
+.is-mobile .floatingchat-container-wrap-mobi,
+.is-mobile .floating-chat-kofi-popup-iframe,
+.is-mobile .floating-chat-kofi-popup-iframe-mobi,
+.is-mobile [id^="kofi-widget-overlay"] {
+  display: none !important;
+}
+
+
 /* --- 8. Modal --- */
 .modal {
     position: fixed;
@@ -875,7 +907,7 @@ a.etf-chip {
 
 .faq-item.active .faq-question {
     background-color: #f9fafb;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .q-mark {
@@ -897,7 +929,8 @@ a.etf-chip {
     margin-top: 2px;
 }
 
-.faq-icon::before, .faq-icon::after {
+.faq-icon::before,
+.faq-icon::after {
     content: '';
     position: absolute;
     background-color: #999;

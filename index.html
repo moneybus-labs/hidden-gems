@@ -5,12 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>채상욱의 머니버스 | 멀티링크</title>
+    <script>
+        (function () {
+            var isMobile = window.innerWidth <= 767 || /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+            if (isMobile) {
+                document.documentElement.classList.add('is-mobile');
+            }
+        })();
+    </script>
     <link rel="stylesheet" href="style.css">
-
-
 </head>
 
 <body>
+
 
     <div class="container">
         <div class="profile-container">
@@ -78,9 +85,49 @@
 
         <div id="links-container" class="links"></div>
 
+        <script src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
+<script>
+    // Initialize Ko‑fi widget
+    kofiWidgetOverlay.draw('moneybuslabs', {
+        'type': 'floating-chat',
+        'floating-chat.donateButton.text': '커피 후원하기',
+        'floating-chat.donateButton.background-color': '#00b9fe',
+        'floating-chat.donateButton.text-color': '#fff'
+    });
+    // Ensure the widget is hidden on mobile after it has been added to the DOM
+// Ensure the widget is hidden on mobile after it has been added to the DOM
+window.addEventListener('load', function () {
+    const isMobile = window.innerWidth <= 767 || /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+    console.log('Mobile detection:', isMobile, 'width:', window.innerWidth);
+    if (isMobile) {
+        // Function to hide the widget
+        const hideKoFi = () => {
+            const selectors = [
+                '.floatingchat-container-wrap',
+                '.floatingchat-container-wrap-mobi',
+                '.floating-chat-kofi-popup-iframe',
+                '.floating-chat-kofi-popup-iframe-mobi',
+                '[id^="kofi-widget-overlay"]'
+            ];
+            selectors.forEach(sel => {
+                const el = document.querySelector(sel);
+                if (el) el.style.setProperty('display', 'none', 'important');
+            });
+        };
+        // Initial hide attempt (in case widget already exists)
+        hideKoFi();
+        // Observe DOM changes to hide widget if it appears later
+        const observer = new MutationObserver(() => {
+            hideKoFi();
+        });
+        observer.observe(document.body, { childList: true, subtree: true });
+    }
+});
+</script>
         <div class="footer">
             &copy; 2026 채상욱의 머니버스. All Rights Reserved.
         </div>
+    </div>
     </div>
 
     <div id="modal" class="modal">
