@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>추천 도서 목록 - Moneyverse</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container faq-container">
+        <header class="faq-header">
+            <a href="index.html" class="back-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+                돌아가기
+            </a>
+            <h1>📚 추천 도서 목록</h1>
+            <p>머니버스 단톡방 대화 내용 및 채부심 유튜브 채널에서 소개되고 추천된 도서 목록입니다. 하단의 검색과 탭 분류를 활용하여 원하는 도서를 쉽게 찾을 수 있습니다.</p>
+        </header>
+
+        <!-- Search Bar -->
+        <div class="search-container">
+            <span class="search-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </span>
+            <input type="text" id="search-input" class="search-input" placeholder="도서명, 저자, 출판사로 검색...">
+        </div>
+
+        <!-- Category Tabs -->
+        <div class="tabs-container">
+            <button class="tab-button active" onclick="switchTab('talk')">머니버스 톡 (단톡방)</button>
+            <button class="tab-button" onclick="switchTab('books')">채부심 북스 (유튜브)</button>
+        </div>
+
+        <!-- List Controls (Count & Sort) -->
+        <div class="list-controls">
+            <span class="books-count" id="books-count">전체 0권</span>
+            <div class="sort-container">
+                <select id="sort-select" class="sort-select" onchange="renderBooks()">
+                    <option value="desc">최신순</option>
+                    <option value="asc">오래된순</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Books List Container -->
+        <div id="books-container" class="books-list"></div>
+
+        <div class="footer">
+            &copy; 2026 채상욱의 머니버스. All Rights Reserved.
+        </div>
+    </div>
+
+    <script>
+        let booksData = {
+            moneyverseTalk: [],
+            chaebusimBooks: []
+        };
+        let currentTab = 'talk'; // 'talk' or 'books'
+
+        // Load books.json
+        fetch('books.json')
+            .then(r => r.json())
+            .then(data => {
+                booksData.moneyverseTalk = prepareTalkBooks(data.moneyverseTalk);
+                booksData.chaebusimBooks = prepareYoutubeBooks(data.chaebusimBooks);
+                renderBooks();
+            })
+            .catch(err => {
+                const container = document.getElementById('books-container');
+                if (container) {
+                    container.innerHTML = `<div class="no-results" style="color: #ff5252;">도서 목록 데이터를 불러오는 데 실패했습니다.<br>오류: ${err.message}</div>`;
+                }
+                console.error('books.json fetch 실패:', err);
+            });
+
+        // Add index to talk books
+        function prepareTalkBooks(list) {
+            return list.map((item, index) => ({
+                ...item,
+                displayIndex: index + 1
+            }));
+        }
+
+        // Group YouTube books by title + author, preserve cover fallback logic
+        function prepareYoutubeBooks(list) {
+            const grouped = [];
+            const map = new Map();
+
+            list.forEach(item => {
+                const key = `${item.title.strip ? item.title.strip() : item.title.trim()}|${item.author.strip ? item.author.strip() : item.author.trim()}`;
+                if (map.has(key)) {
+                    const existing = map.get(key);
+                    existing.videos.push({
+                        videoTitle: item.videoTitle,
+                        videoUrl: item.videoUrl,
+                        date: item.date,
+                        id: item.id
+                    });
+                    existing.id = Math.max(existing.id, item.id);
+                    // If existing has the kyobo logo fallback, try to replace it with a real cover if available
+                    if (existing.coverUrl.includes('img_logo_kyobo') && !item.coverUrl.includes('img_logo_kyobo')) {
+                        existing.coverUrl = item.coverUrl;
+                    }
+                } else {
+                    const copy = {
+                        id: item.id,
+                        title: item.title,
+                        author: item.author,
+                        publisher: item.publisher,
+                        url: item.url,
+                        coverUrl: item.coverUrl,
+                        videos: [{
+                            videoTitle: item.videoTitle,
+                            videoUrl: item.videoUrl,
+                            date: item.date,
+                            id: item.id
+                        }]
+                    };
+                    grouped.push(copy);
+                    map.set(key, copy);
+                }
+            });
+
+            // Assign a sequential displayIndex based on their chronological order of first recommendation
+            grouped.forEach((book, index) => {
+                book.displayIndex = index + 1;
+            });
+
+            return grouped;
+        }
+
+        // Search Input Event
+        const searchInput = document.getElementById('search-input');
+        if (searchInput) {
+            searchInput.addEventListener('input', () => {
+                renderBooks();
+            });
+        }
+
+        // Switch Tab
+        function switchTab(tab) {
+            if (currentTab === tab) return;
+            currentTab = tab;
+
+            // Toggle active classes on tab buttons
+            const buttons = document.querySelectorAll('.tab-button');
+            buttons.forEach(btn => {
+                btn.classList.toggle('active',
+                    (tab === 'talk' && btn.textContent.includes('머니버스')) ||
+                    (tab === 'books' && btn.textContent.includes('채부심'))
+                );
+            });
+
+            renderBooks();
+        }
+
+        // Render Books based on active tab and search query
+        function renderBooks() {
+            const container = document.getElementById('books-container');
+            if (!container) return;
+
+            const query = searchInput.value.toLowerCase().trim();
+            const sourceList = currentTab === 'talk' ? booksData.moneyverseTalk : booksData.chaebusimBooks;
+
+            // Filter by search query
+            const filteredList = sourceList.filter(book => {
+                const titleMatch = book.title.toLowerCase().includes(query);
+                const authorMatch = book.author.toLowerCase().includes(query);
+                const publisherMatch = book.publisher.toLowerCase().includes(query);
+
+                // For YouTube books, search across all recommended videos titles as well
+                const videoTitleMatch = (currentTab === 'books' && book.videos)
+                    ? book.videos.some(v => v.videoTitle && v.videoTitle.toLowerCase().includes(query))
+                    : false;
+
+                return titleMatch || authorMatch || publisherMatch || videoTitleMatch;
+            });
+
+            // Update count
+            const countEl = document.getElementById('books-count');
+            if (countEl) {
+                countEl.textContent = `전체 ${filteredList.length}권`;
+            }
+
+            // Sort logic by displayIndex
+            const sortSelect = document.getElementById('sort-select');
+            const sortValue = sortSelect ? sortSelect.value : 'desc';
+
+            if (sortValue === 'desc') {
+                filteredList.sort((a, b) => b.displayIndex - a.displayIndex);
+            } else {
+                filteredList.sort((a, b) => a.displayIndex - b.displayIndex);
+            }
+
+            // Render list
+            container.innerHTML = '';
+
+            if (filteredList.length === 0) {
+                container.innerHTML = `<div class="no-results">검색 결과가 없습니다. 다른 검색어를 입력해 보세요.</div>`;
+                return;
+            }
+
+            // Create fragment for performance
+            const fragment = document.createDocumentFragment();
+
+            filteredList.forEach(book => {
+                const card = document.createElement('div');
+                card.className = 'book-card';
+
+                const formattedId = `§ ${String(book.displayIndex).padStart(2, '0')}`;
+
+                // Title element (with link or without)
+                let titleHTML = '';
+                if (book.url) {
+                    titleHTML = `<a href="${book.url}" target="_blank" rel="noopener" class="book-title-link">${book.title}</a>`;
+                } else {
+                    titleHTML = `<span class="book-title-link" style="cursor: default; text-decoration: none; color: var(--text-color);">${book.title}</span>`;
+                }
+
+                // Video Section (For YouTube tab only, handles multiple videos)
+                let videoHTML = '';
+                if (currentTab === 'books' && book.videos && book.videos.length > 0) {
+                    const youtubeSvg = `<svg class="youtube-svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" style="display: block;"><path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.108C19.524 3.545 12 3.545 12 3.545s-7.525 0-9.388.51a3.002 3.002 0 0 0-2.11 2.108C0 8.029 0 12 0 12s0 3.971.502 5.837a3.003 3.003 0 0 0 2.11 2.108c1.863.51 9.388.51 9.388.51s7.524 0 9.388-.51a3.002 3.002 0 0 0 2.11-2.108C24 15.971 24 12 24 12s0-3.971-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>`;
+                    
+                    const rowsHTML = book.videos.map(v => {
+                        const videoLinkHTML = v.videoUrl
+                            ? `<a href="${v.videoUrl}" target="_blank" rel="noopener" class="book-video-info">
+                                <span class="book-video-icon">${youtubeSvg}</span>
+                                <span class="book-video-title" title="${v.videoTitle}">${v.videoTitle}</span>
+                               </a>`
+                            : `<div class="book-video-info" style="cursor: default;">
+                                <span class="book-video-icon" style="color: var(--text-light);">${youtubeSvg}</span>
+                                <span class="book-video-title" title="${v.videoTitle}">${v.videoTitle}</span>
+                               </div>`;
+                        
+                        return `
+                            <div class="book-video-row">
+                                ${videoLinkHTML}
+                                <span class="book-video-date">${v.date}</span>
+                            </div>
+                        `;
+                    }).join('');
+
+                    videoHTML = `
+                        <div class="book-videos-container">
+                            ${rowsHTML}
+                        </div>
+                    `;
+                }
+
+                // Date badge for Moneyverse Talk (since it has no video section)
+                const dateMetaHTML = currentTab === 'talk' ? `<span class="book-date">${book.date}</span>` : '';
+
+                let coverHTML = '';
+                if (book.coverUrl) {
+                    coverHTML = `
+                        <div class="book-cover-container">
+                            <img src="${book.coverUrl}" class="book-cover-img" alt="${book.title} 표지" loading="lazy" onerror="this.parentElement.style.display='none';">
+                        </div>
+                    `;
+                }
+
+                card.innerHTML = `
+                    <div class="book-card-content">
+                        <div class="book-card-left">
+                            <div class="book-card-header">
+                                <div class="book-meta">
+                                    <span class="book-id-badge">${formattedId}</span>
+                                    ${dateMetaHTML}
+                                </div>
+                            </div>
+                            ${titleHTML}
+                            <div class="book-info-row">
+                                <div class="book-info-item">
+                                    <span class="book-info-label">저자</span>
+                                    <span class="book-info-val">${book.author || '-'}</span>
+                                </div>
+                                <div class="book-info-item">
+                                    <span class="book-info-label">출판사</span>
+                                    <span class="book-info-val">${book.publisher || '-'}</span>
+                                </div>
+                            </div>
+                        </div>
+                        ${coverHTML}
+                    </div>
+                    ${videoHTML}
+                `;
+
+                fragment.appendChild(card);
+            });
+
+            container.appendChild(fragment);
+        }
+    </script>
+</body>
+
+</html>
