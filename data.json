@@ -4,7 +4,8 @@
       "url": "https://fillbook.ludicflow.com",
       "title": "📓 매매일지 어플 FillBook",
       "isNew": true,
-      "contributor": null
+      "contributor": null,
+      "category": "도구"
     },
     {
       "url": "https://drive.google.com/drive/folders/1PGNQhqmSTNszv28tAIEchzOZlLlZisUP?usp=sharing",
@@ -13,22 +14,25 @@
       "contributor": {
         "githubId": null,
         "name": "간식먹는 두더지 388338"
-      }
+      },
+      "category": "자료"
     },
     {
       "url": "https://bird-heart.pages.dev",
       "title": "🚌 머니버스 포트폴리오 가이드",
       "isNew": false,
-      "contributor": null
+      "contributor": null,
+      "category": "도구"
     },
     {
-      "url": "https://buly.kr/GvokGOa",
+      "url": "https://naver.me/52abhRld",
       "title": "📈 액티브 ETF 구성 변화 시각화 앱",
       "isNew": false,
       "contributor": {
         "githubId": "joonhochoi",
         "name": "우드워커"
-      }
+      },
+      "category": "도구"
     },
     {
       "url": "https://activetfs.github.io/reports",
@@ -37,7 +41,8 @@
       "contributor": {
         "githubId": "activetfs",
         "name": "게임하는 판다 192331"
-      }
+      },
+      "category": "자료"
     },
     {
       "url": "https://meringue5.github.io/chaextractor",
@@ -46,7 +51,8 @@
       "contributor": {
         "githubId": "meringue5",
         "name": "무스타파"
-      }
+      },
+      "category": "도구"
     }
   ],
   "etfData": [
