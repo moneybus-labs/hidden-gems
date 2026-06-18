@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>채초리 모음집</title>
+    <title>Moneyverse</title>
     <link rel="stylesheet" href="style.css">
     <style>
         .chaechori-quote {
@@ -111,13 +111,17 @@
         </div>
     </div>
 
-    <script src="data.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            renderChaechori();
-        });
+        fetch('data.json')
+            .then(r => r.json())
+            .then(data => renderChaechori(data.chaechoriData))
+            .catch(err => {
+                const container = document.getElementById('chaechori-container');
+                if (container) container.innerHTML = `<p style="color:red">오류: ${err.message}</p>`;
+                console.error('data.json fetch 실패:', err);
+            });
 
-        function renderChaechori() {
+        function renderChaechori(chaechoriData) {
             const container = document.getElementById('chaechori-container');
             if (!container) return;
 

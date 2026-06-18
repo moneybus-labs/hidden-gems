@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>채상욱의 머니버스 | 멀티링크</title>
+    <title>Moneyverse</title>
     <script>
         (function () {
             var isMobile = window.innerWidth <= 767 || /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
@@ -48,7 +48,7 @@
         </a>
 
         <a href="chaechori.html" class="onboarding-banner"
-            style="background: linear-gradient(135deg, #d32f2f 0%, #ff5252 100%);">
+            style="background: linear-gradient(135deg, #d32f2f 0%, #ff5252 100%); margin-bottom: 8px;">
             <div class="onboarding-content">
                 <span class="onboarding-badge" style="background: #222; color: #ffeb3b;">어록</span>
                 <div class="onboarding-text">
@@ -63,15 +63,31 @@
             </svg>
         </a>
 
+        <a href="books.html" class="onboarding-banner"
+            style="background: linear-gradient(135deg, #3f51b5 0%, #7e57c2 100%); margin-bottom: 25px;">
+            <div class="onboarding-content">
+                <span class="onboarding-badge" style="background: #222; color: #ffd700;">도서</span>
+                <div class="onboarding-text">
+                    <span class="onboarding-title">📚 추천 도서 목록</span>
+                    <span class="onboarding-desc">단톡방 추천 도서 및 채부심 유튜브 도서 모아보기</span>
+                </div>
+            </div>
+            <svg class="onboarding-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+        </a>
+
         <section class="commandments-section" id="capture-target">
-            <h2 class="commandments-title">하지마라 20계명</h2>
+            <h2 class="commandments-title" id="commandments-title">하지마라 20계명</h2>
 
             <div id="commandments-container" class="commandments-list"></div>
 
             <p class="section-hint">각 계명 카드를 클릭하면 상세 설명을 볼 수 있습니다</p>
 
             <div class="download-container">
-                <a href="#" onclick="downloadImage(); return false;" class="download-btn">
+                <a href="#" onclick="downloadImage(); return false;" class="download-btn" id="download-btn">
                     📥 20계명 이미지로 저장
                 </a>
             </div>
@@ -156,15 +172,21 @@ window.addEventListener('load', function () {
 
     <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"
         onerror="alert('스크립트 로드 실패!');"></script>
-    <script src="data.js"></script>
-
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            renderCommandments();
-            renderEtfSection();
-            renderLinks();
-            setupModalEvents();
-        });
+        let linksData, etfData, bentoData;
+
+        fetch('data.json')
+            .then(r => r.json())
+            .then(data => {
+                linksData = data.linksData;
+                etfData = data.etfData;
+                bentoData = data.bentoData;
+                renderCommandments();
+                renderEtfSection();
+                renderLinks();
+                setupModalEvents();
+            })
+            .catch(err => console.error('data.json fetch 실패:', err));
 
         function renderEtfSection() {
             const container = document.getElementById('etf-container');
@@ -251,6 +273,10 @@ window.addEventListener('load', function () {
         function renderCommandments() {
             const container = document.getElementById('commandments-container');
             if (!container) return;
+
+            const count = bentoData.length;
+            document.getElementById('commandments-title').textContent = `하지마라 ${count}계명`;
+            document.getElementById('download-btn').textContent = `📥 ${count}계명 이미지로 저장`;
 
             const sortedData = [...bentoData].sort((a, b) => {
                 if (a.id === 15) return 1;
@@ -349,7 +375,7 @@ window.addEventListener('load', function () {
                 }
             }).then(canvas => {
                 const link = document.createElement('a');
-                link.download = '채상욱의_머니버스_20계명.png';
+                link.download = `채상욱의_머니버스_${bentoData.length}계명.png`;
                 link.href = canvas.toDataURL("image/png");
                 link.click();
                 document.body.style.cursor = 'default';
