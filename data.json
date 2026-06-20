@@ -188,6 +188,29 @@
           "url": "https://investments.miraeasset.com/tigeretf/ko/product/search/detail/index.do?ksdFund=KR7117690008"
         }
       ]
+    },
+    {
+      "category": "안전자산 30%",
+      "items": [
+        {
+          "nickname": null,
+          "brand": "TIME",
+          "fullName": "TIME 미국 나스닥 100 채권혼합50 액티브",
+          "url": "https://timeetf.co.kr/m11_view.php?idx=10"
+        },
+        {
+          "nickname": null,
+          "brand": "KoAct",
+          "fullName": "미국 나스닥 채권혼합50 액티브",
+          "url": "https://www.samsungactive.co.kr/etf/view.do?id=2ETFS3"
+        },
+        {
+          "nickname": null,
+          "brand": "RISE",
+          "fullName": "RISE 삼성전자 SK하이닉스 채권혼합50",
+          "url": "https://www.riseetf.co.kr/prod/finderDetail/44K1"
+        }
+      ]
     }
   ],
   "bentoData": [
