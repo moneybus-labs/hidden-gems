@@ -69,12 +69,14 @@
           "nickname": "타나백",
           "brand": "TIME",
           "fullName": "TIME 미국 나스닥 100 액티브",
+          "isBest": true,
           "url": "https://timeetf.co.kr/m11_view.php?idx=2"
         },
         {
           "nickname": "코나성",
           "brand": "KoAct",
           "fullName": "KoAct 미국 나스닥 성장기업 액티브",
+          "isBest": true,
           "url": "https://www.samsungactive.co.kr/etf/view.do?id=2ETFQ1"
         },
         {
