@@ -325,6 +325,8 @@
                 else
                     cleanTitle = item.cardTitle.replace(/(\([^)]*\))$/, '<span class="card-text-sub">$1</span>');
 
+                const newBadge = item.isNew ? `<span class="badge-new">NEW</span>` : '';
+
                 let badgeHTML = '';
                 if (item.badge) {
                     badgeHTML = `<span class="badge ${item.badge.class}">${item.badge.text}</span>`;
@@ -333,7 +335,7 @@
                 card.innerHTML = `
                     <span class="section-num">§ ${String(item.id).padStart(2, '0')}</span>
                     <span class="card-icon">${item.icon}</span>
-                    <div class="card-text">${cleanTitle}</div>
+                    <div class="card-text">${cleanTitle}${newBadge}</div>
                     ${badgeHTML}
                 `;
 
@@ -356,7 +358,8 @@
             modal.querySelector('.modal-number').textContent = `§ ${String(id).padStart(2, '0')}`;
 
             const formattedTitle = data.title.replace(/(\([^)]*\))$/, '<span class="modal-title-sub">$1</span>');
-            modal.querySelector('.modal-title').innerHTML = formattedTitle;
+            const newBadge = data.isNew ? `<span class="badge-new">NEW</span>` : '';
+            modal.querySelector('.modal-title').innerHTML = `${formattedTitle}${newBadge}`;
 
             modal.querySelector('.modal-logic').textContent = data.logic;
             modal.querySelector('.modal-detail').textContent = data.detail;
