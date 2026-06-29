@@ -112,7 +112,7 @@
     </div>
 
     <script>
-        fetch('data.json')
+        fetch('https://bird-heart-worker.ludicflow.workers.dev/api/hidden-gems/data')
             .then(r => r.json())
             .then(data => renderChaechori(data.chaechoriData))
             .catch(err => {

@@ -68,7 +68,7 @@
         let currentTab = 'talk'; // 'talk' or 'books'
 
         // Load books.json
-        fetch('books.json')
+        fetch('https://bird-heart-worker.ludicflow.workers.dev/api/hidden-gems/books')
             .then(r => r.json())
             .then(data => {
                 booksData.moneyverseTalk = prepareTalkBooks(data.moneyverseTalk);

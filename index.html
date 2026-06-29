@@ -202,7 +202,7 @@
     <script>
         let linksData, etfData, bentoData;
 
-        fetch('data.json')
+        fetch('https://bird-heart-worker.ludicflow.workers.dev/api/hidden-gems/data')
             .then(r => r.json())
             .then(data => {
                 linksData = data.linksData;
